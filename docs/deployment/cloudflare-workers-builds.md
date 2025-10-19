@@ -18,5 +18,6 @@ Die Befehle stehen ebenfalls als npm-Skripte (`npm run build:cf`, `npm run deplo
 
 ## Weitere Hinweise
 - Dokumentation: [OpenNext Cloudflare Guide](https://opennext.js.org/cloudflare/get-started) und [Cloudflare Workers Blogpost](https://blog.cloudflare.com/deploying-nextjs-apps-to-cloudflare-workers-with-the-opennext-adapter/).
+- Wrangler: Verwende Version **3.99.0 oder neuer**, damit die Workers-Builds-APIs verfügbar sind.
 - Bei Fehlern im Build zuerst `npm run build:cf` lokal ausführen, damit TypeScript/ESLint-Fehler früh auffallen.
 - Rollbacks erfolgen über die Workers Builds Deployment-Historie; dokumentiere Entscheidungen unter `docs/compliance/ASVS.md`.
