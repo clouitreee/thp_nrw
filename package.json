@@ -1,0 +1,58 @@
+{
+  "name": "thp_nrw",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tech Hilfe Pro \u2013 accessible, secure IT support experiences for NRW SMEs and households.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "npm@10.7.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest --run",
+    "coverage": "vitest run --coverage",
+    "sbom:cyclonedx": "npm sbom --format=cyclonedx --output=sbom-cyclonedx.json",
+    "sbom:spdx": "npm sbom --format=spdx --output=sbom-spdx.json",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.19",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.0.0",
+    "next": "^15.0.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^15.0.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^22.7.4",
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.2",
+    "@typescript-eslint/eslint-plugin": "^8.6.0",
+    "@typescript-eslint/parser": "^8.6.0",
+    "eslint": "^9.9.1",
+    "eslint-config-next": "^15.0.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "jsdom": "^24.1.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.3",
+    "@vitest/coverage-v8": "^2.1.3"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix --max-warnings=0"
+    ],
+    "*.{ts,tsx}": [
+      "bash -lc \"tsc --noEmit --pretty false --project tsconfig.json\""
+    ]
+  }
+}

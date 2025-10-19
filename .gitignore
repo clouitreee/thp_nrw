@@ -1,0 +1,45 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Next.js
+.next/
+.vercel/
+.DS_Store
+out/
+
+# Storybook
+storybook-static/
+
+# Coverage and build artifacts
+coverage/
+build/
+dist/
+tsconfig.tsbuildinfo
+
+# Environment files
+.env*
+!.env.example
+
+# Logs and diagnostics
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# Editor directories and files
+.vscode/
+.idea/
+
+# SBOM artifacts
+sbom-*.json
+
+# Husky
+.husky/_/
