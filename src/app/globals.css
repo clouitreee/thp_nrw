@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@import "../../styles/tokens.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  text-rendering: optimizeLegibility;
+  line-height: 1.6;
+}
+
+main {
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--color-accent-strong);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-accent);
+  color: white;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  transition: top 0.2s ease;
+  z-index: 1000;
+}
+
+.skip-link:focus-visible {
+  top: var(--space-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,8 @@
+name = "tech-hilfe-pro"
+pages_build_output_dir = ".vercel/output/static"
+compatibility_date = "2025-10-19"
+
+# [vars]
+# SUPABASE_SERVICE_ROLE_KEY = ""
+# STRIPE_SECRET_KEY = ""
+# STRIPE_WEBHOOK_SECRET = ""

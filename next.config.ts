@@ -1,0 +1,21 @@
+import type { NextConfig } from "next";
+
+const isViewTransitionEnabled = process.env.NEXT_PUBLIC_VIEW_TRANSITIONS === "true";
+
+const nextConfig: NextConfig = {
+  experimental: {
+    viewTransition: isViewTransitionEnabled,
+  },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          // Cloudflare Pages will also enforce these headers. Keep in sync with docs/security/headers.md.
+        ],
+      },
+    ];
+  },
+};
+
+export default nextConfig;
