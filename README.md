@@ -8,7 +8,7 @@ Digitale Hilfe und Automatisierung für Privathaushalte und kleine Unternehmen i
 - [Tailwind CSS 4](https://tailwindcss.com/) (Zero-Config Baseline)
 - [TypeScript 5](https://www.typescriptlang.org/)
 - [Framer Motion](https://www.framer.com/motion/) für sanfte, rücksichtsvolle Animationen
-- Cloudflare Pages + `@cloudflare/next-on-pages` für Deployment
+- Cloudflare Workers Builds via [`@opennextjs/cloudflare`](https://opennext.js.org/)
 
 ## Accessibility (WCAG 2.2 AA)
 - Globaler Skip-Link, Fokus-Styling und `prefers-reduced-motion` Support
@@ -20,10 +20,11 @@ Digitale Hilfe und Automatisierung für Privathaushalte und kleine Unternehmen i
 - HSTS, X-Frame-Options, Referrer-Policy und Permissions-Policy vordefiniert (siehe `docs/security/headers.md`)
 - API-Routen bereiten Webhook-Handling mit Raw-Body vor (Stripe, Supabase)
 
-## Cloudflare Pages Deployment
-- `npx @cloudflare/next-on-pages@latest build`
-- Output: `.vercel/output/static`
-- Variablen & Secrets laut `.env.example` im Pages Dashboard setzen
+## Cloudflare Workers Deployment
+- Build: `npx @opennextjs/cloudflare build`
+- Deploy: `npx @opennextjs/cloudflare deploy`
+- Optional lokale Vorschau: `npx wrangler dev --local`
+- Variablen & Secrets laut `.env.example` im Cloudflare Dashboard setzen (Workers Builds)
 - Branch Protection und CodeQL aktivieren, um Deployments abzusichern
 
 ## Service-Katalog
@@ -39,4 +40,6 @@ Tech Hilfe Pro arbeitet aktuell unter den Regelungen des §19 UStG. Rechnungen w
 - `docs/UX_DECISIONS.md`: Fokus, Motion, Navigationsprinzipien
 - `docs/compliance/ASVS.md`: Abbildung zu OWASP ASVS Level 2
 - `docs/compliance/NIS2.md`: Risikoregister & Evidence Log
-- `docs/architecture/ADR-0001.md`: Entscheidung für Next.js 15 + Cloudflare Pages + Tailwind v4
+- `docs/architecture/ADR-0001.md`: Entscheidung für Next.js 15 + Cloudflare Workers Builds + Tailwind v4
+- `docs/deployment/cloudflare-pages.md`: Cloudflare Pages Setup (Workers Builds Dashboard)
+- `docs/deployment/cloudflare-workers-builds.md`: OpenNext Build & Deploy Befehle

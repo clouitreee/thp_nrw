@@ -19,6 +19,7 @@ coverage/
 build/
 dist/
 tsconfig.tsbuildinfo
+.open-next/
 
 # Environment files
 .env*

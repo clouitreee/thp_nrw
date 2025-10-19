@@ -7,7 +7,7 @@
 | V3 Session-Management | Geplant | Wird mit Auth eingeführt |
 | V4 Access Control | Geplant | Rollen & RLS Policy nach Supabase-Anbindung |
 | V5 Validierung, Sanitization | Teilweise | Next.js und TypeScript gewährleisten Baseline; weitere Validierungen in Services notwendig |
-| V6 Stored Cryptography | Geplant | Secrets via Cloudflare Pages verwaltet |
+| V6 Stored Cryptography | Geplant | Secrets via Cloudflare Workers Builds Dashboard verwaltet |
 | V7 Fehlerbehandlung & Logging | Geplant | Logging-Konzept in zukünftiger ADR |
 | V8 Daten-Schutz | In Arbeit | CSP, HSTS, Referrer-Policy definiert |
 | V9 Kommunikations-Security | In Arbeit | HSTS + HTTPS verpflichtend |
