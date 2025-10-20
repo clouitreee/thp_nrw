@@ -1,6 +1,7 @@
 name = "tech-hilfe-pro"
 compatibility_date = "2025-10-19"
 
+# Workers Builds uses dashboard build/deploy commands; secrets are managed via Cloudflare.
 # [vars]
 # SUPABASE_URL = ""
 # SUPABASE_SERVICE_ROLE_KEY = ""

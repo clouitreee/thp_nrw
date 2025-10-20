@@ -9,6 +9,8 @@ Die Production-Pipeline nutzt das offizielle OpenNext-Adapterpaket, um Next.js 1
 
 Die Befehle stehen ebenfalls als npm-Skripte (`npm run build:cf`, `npm run deploy:cf`, `npm run preview:cf`) zur Verfügung.
 
+> ⚠️ Hinweis: Der frühere Ansatz mit `@cloudflare/next-on-pages` und `pages_build_output_dir` ist veraltet und wird in diesem Projekt nicht mehr unterstützt.
+
 ## Konfiguration im Cloudflare Dashboard
 1. Navigiere zu *Workers & Pages* → *Create application* → *Workers Builds*.
 2. Wähle das GitHub-Repository (`main` als Produktionsbranch) und hinterlege die obigen Build-/Deploy-Befehle. Das Feld "Output directory" bleibt leer.
