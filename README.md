@@ -17,8 +17,9 @@ Digitale Hilfe und Automatisierung für Privathaushalte und kleine Unternehmen i
 
 ## Security & Privacy
 - Strikte Content Security Policy mit Nonce-basierter Skript- und Style-Freigabe
-- HSTS, X-Frame-Options, Referrer-Policy und Permissions-Policy vordefiniert (siehe `docs/security/headers.md`)
-- API-Routen bereiten Webhook-Handling mit Raw-Body vor (Stripe, Supabase)
+- HSTS, X-Frame-Options, Referrer-Policy, COOP/COEP und Permissions-Policy vordefiniert (siehe `docs/security/headers.md`)
+- `security.txt` veröffentlicht und CI-Validierung mit `npm run validate:security`
+- Stripe-Webhooks verifizieren Signaturen per WebCrypto (`src/app/api/webhooks/stripe/route.ts`)
 
 ## Cloudflare Workers Deployment
 - Build: `npx @opennextjs/cloudflare build`
@@ -39,7 +40,9 @@ Tech Hilfe Pro arbeitet aktuell unter den Regelungen des §19 UStG. Rechnungen w
 - `SECURITY.md`: Kontakt für Schwachstellenmeldungen
 - `docs/UX_DECISIONS.md`: Fokus, Motion, Navigationsprinzipien
 - `docs/compliance/ASVS.md`: Abbildung zu OWASP ASVS Level 2
+- `docs/security/asvs-matrix.md`: Detailmatrix mit konkreten Nachweisen
 - `docs/compliance/NIS2.md`: Risikoregister & Evidence Log
 - `docs/architecture/ADR-0001.md`: Entscheidung für Next.js 15 + Cloudflare Workers Builds + Tailwind v4
 - `docs/deployment/cloudflare-pages.md`: Cloudflare Pages Setup (Workers Builds Dashboard)
 - `docs/deployment/cloudflare-workers-builds.md`: OpenNext Build & Deploy Befehle
+- `docs/integrations/stripe-webhooks.md`: Leitfaden zur Stripe-Webhook-Verifikation auf Cloudflare Workers Builds

@@ -2,7 +2,9 @@
 
 ## Reporting a Vulnerability
 - E-Mail: security@techhilfe.pro
-- PGP: folgt (bitte vorerst über verschlüsselte Nextcloud teilen)
+- PGP: https://techhilfe.pro/pgp.txt (Fingerprint im GitHub-Profil gespiegelt)
+- Policy: https://techhilfe.pro/SECURITY
+- Canonical: https://techhilfe.pro/.well-known/security.txt
 - Reaktionszeit: 2 Werktage
 
 Bitte liefern Sie:

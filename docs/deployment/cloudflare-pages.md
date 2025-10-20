@@ -9,8 +9,8 @@
 2. "Connect to Git" auswählen und `main` als Produktionsbranch festlegen.
 3. Unter **Build** den Modus **Workers Builds** wählen und die Befehle aus `docs/deployment/cloudflare-workers-builds.md` übernehmen.
 4. Environment Variables entsprechend `.env.example` hinzufügen:
-   - Public: `NEXT_PUBLIC_*`
-   - Secret: `SUPABASE_SERVICE_ROLE_KEY`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`
+   - Public: `NEXT_PUBLIC_*` (z. B. `NEXT_PUBLIC_MEETERGO_WIDGET_SRC`)
+   - Secret: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `CF_ANALYTICS_TOKEN`
 5. Optional: Pages Functions/Workers-Variablen dokumentieren und mit Secrets versehen.
 6. Nach dem ersten Deploy lokal `npm run preview:cf` testen, um SSR-spezifische Fehler zu finden.
 7. In Cloudflare "Always Online" deaktivieren, damit SSR-Fehler sichtbar bleiben.

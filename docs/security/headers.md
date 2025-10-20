@@ -11,15 +11,16 @@ Content-Security-Policy:
   font-src 'self' https://fonts.gstatic.com;
   img-src 'self' data: https://avatars.githubusercontent.com;
   object-src 'none';
-  script-src 'self' 'nonce-<generated>' https://embed.meetergo.com; // Keine eval oder inline Events
-  style-src 'self' 'nonce-<generated>'; // Nur benötigte Domains whitelisten
+  script-src 'self' 'nonce-__DYNAMIC__' https://embed.meetergo.com https://wa.me; // Keine eval oder inline Events
+  style-src 'self' 'nonce-__DYNAMIC__'; // Nur benötigte Domains whitelisten
   connect-src 'self' https://api.supabase.co https://api.stripe.com;
   frame-ancestors 'none';
+  form-action 'self';
 ```
 
-> Cloudflare Pages Functions können die Nonce injizieren und die Header konsistent setzen.
+> Cloudflare Workers/Functions können die Nonce injizieren und die Header konsistent setzen.
 
-Fügen Sie weitere erlaubte Quellen nur gezielt hinzu. Für das Meetergo-Sidebar-Widget ist `https://embed.meetergo.com` erforderlich und wird mit Nonce abgesichert; zusätzliche Domains sind erst nach Sicherheitsprüfung zu erlauben.
+Fügen Sie weitere erlaubte Quellen nur gezielt hinzu. Für das Meetergo-Sidebar-Widget ist `https://embed.meetergo.com` erforderlich und wird mit Nonce abgesichert; WhatsApp-Deep-Links (`https://wa.me`) bleiben erlaubt, solange keine weiteren Inline-Ereignisse hinzukommen. Zusätzliche Domains erst nach Sicherheitsprüfung freigeben.
 
 ## Weitere Header
 
@@ -28,7 +29,7 @@ Fügen Sie weitere erlaubte Quellen nur gezielt hinzu. Für das Meetergo-Sidebar
 - `Referrer-Policy: strict-origin-when-cross-origin`
 - `Permissions-Policy: camera=(), geolocation=(), microphone=(), fullscreen=(self)` (anpassen nach Bedarf)
 - `Cross-Origin-Opener-Policy: same-origin`
-- `Cross-Origin-Embedder-Policy: require-corp` (nur wenn kompatibel mit Third-Party-Skripten)
+- `Cross-Origin-Embedder-Policy: credentialless` (reduziert Spectre-Risiken ohne Third-Party-Blockaden)
 
 ## Cloudflare Pages Hinweise
 

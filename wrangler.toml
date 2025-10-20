@@ -2,6 +2,8 @@ name = "tech-hilfe-pro"
 compatibility_date = "2025-10-19"
 
 # [vars]
+# SUPABASE_URL = ""
 # SUPABASE_SERVICE_ROLE_KEY = ""
 # STRIPE_SECRET_KEY = ""
 # STRIPE_WEBHOOK_SECRET = ""
+# CF_ANALYTICS_TOKEN = ""

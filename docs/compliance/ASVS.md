@@ -1,5 +1,7 @@
 # OWASP ASVS Mapping (Level 2 Ziel)
 
+> Detailierte Referenzen siehe `docs/security/asvs-matrix.md`.
+
 | ASVS Kapitel | Status | Hinweise |
 |--------------|--------|----------|
 | V1 Architektur, Design und Bedrohungsmodellierung | In Arbeit | ADR-0001 dokumentiert grundlegende Entscheidungen; Bedrohungsmodell folgt |

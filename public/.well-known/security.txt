@@ -1,0 +1,5 @@
+Contact: mailto:security@techhilfe.pro
+Encryption: https://techhilfe.pro/pgp.txt
+Policy: https://techhilfe.pro/SECURITY
+Preferred-Languages: de, en
+Canonical: https://techhilfe.pro/.well-known/security.txt

@@ -20,6 +20,8 @@ build/
 dist/
 tsconfig.tsbuildinfo
 .open-next/
+playwright-report/
+test-results/
 
 # Environment files
 .env*

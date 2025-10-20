@@ -2,6 +2,7 @@ import { H1 } from "../components/typography/H1";
 import { H2 } from "../components/typography/H2";
 import { ServiceCatalog } from "../components/catalog/ServiceCatalog";
 import { KmuPlaceholder } from "../components/business/KmuPlaceholder";
+import { BUSINESS } from "@/config/business";
 
 export default function HomePage() {
   return (
@@ -48,6 +49,46 @@ export default function HomePage() {
       </section>
       <ServiceCatalog />
       <KmuPlaceholder />
+      <section
+        id="kontakt"
+        className="mx-auto mt-[var(--space-2xl)] max-w-6xl rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] px-6 py-8"
+        aria-labelledby="kontakt-heading"
+      >
+        <H2 id="kontakt-heading">Kontakt aufnehmen</H2>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <div className="space-y-2 text-sm text-[var(--color-text-subtle)]">
+            <p>
+              <strong className="text-[var(--color-text)]">E-Mail:</strong>{" "}
+              <a className="underline" href={`mailto:${BUSINESS.email}`}>
+                {BUSINESS.email}
+              </a>
+            </p>
+            <p>
+              <strong className="text-[var(--color-text)]">Telefon:</strong>{" "}
+              <a className="underline" href="tel:+4915565029989">
+                {BUSINESS.phone}
+              </a>
+            </p>
+            <p>
+              <strong className="text-[var(--color-text)]">WhatsApp:</strong>{" "}
+              <a className="underline" href={BUSINESS.whatsappHref} target="_blank" rel="noopener noreferrer">
+                Chat starten
+              </a>
+            </p>
+          </div>
+          <div className="space-y-2 text-sm text-[var(--color-text-subtle)]">
+            <p>
+              <strong className="text-[var(--color-text)]">Rechnungsadresse:</strong>
+            </p>
+            <address className="not-italic">
+              <div>{BUSINESS.company}</div>
+              <div>{BUSINESS.legalAddress.street}</div>
+              <div>{BUSINESS.legalAddress.zipCity}</div>
+            </address>
+            <p className="pt-2">{BUSINESS.notes.footerServiceMode}</p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
