@@ -1,0 +1,36 @@
+name: Accessibility and E2E
+
+on:
+  workflow_dispatch:
+    inputs:
+      with-ui-tests:
+        description: "Run Vitest UI suite before Playwright"
+        required: false
+        default: "true"
+
+jobs:
+  run-a11y-e2e:
+    name: Vitest UI + Playwright
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.x"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Vitest UI suite
+        if: inputs.with-ui-tests == 'true'
+        run: npm run test:ui
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: npm run test:e2e:ci

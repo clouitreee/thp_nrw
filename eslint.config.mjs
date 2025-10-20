@@ -7,6 +7,9 @@ const compat = new FlatCompat({
 });
 
 const config = [
+  {
+    ignores: ["coverage/**"],
+  },
   ...compat.extends("next/core-web-vitals"),
   { rules: { "no-console": ["error", { allow: ["warn", "error"] }] } },
 ];

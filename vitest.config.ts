@@ -1,31 +1,48 @@
-import type { PluginOption } from "vite";
+/// <reference types="vitest" />
 import { defineConfig } from "vitest/config";
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+import { createRequire } from "node:module";
+import { readFileSync } from "node:fs";
 
-export default defineConfig(async () => {
-  const plugins: PluginOption[] = [];
+const require = createRequire(import.meta.url);
 
-  try {
-    const tsconfigPaths = (await import("vite-tsconfig-paths")).default;
-    plugins.push(tsconfigPaths());
-  } catch (error) {
-    console.warn("vite-tsconfig-paths not available; module resolution may differ from Next.js", error);
-  }
+let testEnvironment: "jsdom" | "node" = "jsdom";
+try {
+  require.resolve("jsdom");
+} catch (error) {
+  console.warn("jsdom not available; falling back to Node test environment", error);
+  testEnvironment = "node";
+}
 
-  try {
-    const react = (await import("@vitejs/plugin-react")).default;
-    plugins.push(react());
-  } catch (error) {
-    console.warn("@vitejs/plugin-react not available; skipping React-specific transforms", error);
-  }
+const tsconfigUrl = new URL("./tsconfig.json", import.meta.url);
+const tsconfigRaw = JSON.parse(readFileSync(tsconfigUrl, "utf-8"));
 
-  return {
-    plugins,
-    test: {
-      environment: "jsdom",
-      setupFiles: ["./src/test/setup-tests.ts"],
-      coverage: {
-        reporter: ["text", "json", "html"],
-      },
+export default defineConfig({
+  esbuild: {
+    jsx: "automatic",
+    jsxDev: true,
+    tsconfigRaw,
+  },
+  resolve: {
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "next/font": path.resolve(process.cwd(), "src/test/mocks/next-font.ts"),
     },
-  };
+  },
+  test: {
+    environment: testEnvironment,
+    setupFiles: ["./src/test/setup-tests.ts"],
+    watch: false,
+    coverage: {
+      reporter: ["text", "json", "html"],
+    },
+    passWithNoTests: true,
+    include: [
+      "tests/**/*.test.{ts,tsx}",
+      "tests/**/*.spec.{ts,tsx}",
+      "src/**/*.{test,spec}.{ts,tsx}",
+    ],
+    exclude: ["**/*.ui.spec.*", "e2e/**/*"],
+  },
 });
