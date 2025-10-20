@@ -4,7 +4,7 @@ const STRIPE_API_VERSION = "2024-11-20" as const;
 const textDecoder = new TextDecoder("utf-8");
 const cryptoProvider = Stripe.createSubtleCryptoProvider();
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 function getStripeSecret() {
   const secret = process.env.STRIPE_WEBHOOK_SECRET;
@@ -45,6 +45,10 @@ export async function POST(request: Request) {
   }
 
   const rawBody = await request.arrayBuffer();
+  if (rawBody.byteLength === 0) {
+    console.error("Stripe webhook received empty body");
+    return new Response("Empty payload", { status: 400 });
+  }
 
   try {
     const event = await stripe.webhooks.constructEventAsync(
@@ -54,6 +58,13 @@ export async function POST(request: Request) {
       undefined,
       { cryptoProvider }
     );
+
+    const eventId = (event as { id?: string }).id;
+
+    if (!eventId) {
+      console.error("Stripe webhook missing event id");
+      return new Response("Invalid event", { status: 400 });
+    }
 
     switch (event.type) {
       case "payment_intent.succeeded":

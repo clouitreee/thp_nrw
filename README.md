@@ -4,7 +4,7 @@ Digitale Hilfe und Automatisierung für Privathaushalte und kleine Unternehmen i
 
 ## Stack
 - [Next.js 15](https://nextjs.org/) mit App Router und Route Handlers
-- [React 18](https://react.dev/)
+- [React 18](https://react.dev/) (React 19 upgrade is pending upstream Testing Library support; see `docs/audit/2024-12-04-initial-stack-review.md`)
 - [Tailwind CSS 4](https://tailwindcss.com/) (Zero-Config Baseline)
 - [TypeScript 5](https://www.typescriptlang.org/)
 - [Framer Motion](https://www.framer.com/motion/) für sanfte, rücksichtsvolle Animationen
@@ -45,4 +45,6 @@ Tech Hilfe Pro arbeitet aktuell unter den Regelungen des §19 UStG. Rechnungen w
 - `docs/architecture/ADR-0001.md`: Entscheidung für Next.js 15 + Cloudflare Workers Builds + Tailwind v4
 - `docs/deployment/cloudflare-pages.md`: Cloudflare Pages Setup (Workers Builds Dashboard)
 - `docs/deployment/cloudflare-workers-builds.md`: OpenNext Build & Deploy Befehle
+- `docs/audit/2024-12-04-initial-stack-review.md`: Abgleich von Ziel-Stack vs. aktuellem Stand
+- `docs/ai/README.md`: Leitplanken für künftige OpenAI-gestützte Funktionen
 - `docs/integrations/stripe-webhooks.md`: Leitfaden zur Stripe-Webhook-Verifikation auf Cloudflare Workers Builds

@@ -13,9 +13,9 @@
 3. Trage die Production-URL ein: `https://techhilfe.pro/api/webhooks/stripe` (oder Preview-URL).
 
 ## Funktionsweise
-- Next.js Route Handler (`src/app/api/webhooks/stripe/route.ts`) läuft im Edge/Workers-Runtime (`runtime = "edge"`).
+- Next.js Route Handler (`src/app/api/webhooks/stripe/route.ts`) läuft in der Node.js-Runtime (`runtime = "nodejs"`) für zuverlässigen Zugriff auf den rohen Request-Body.
 - Der Body wird mit `await request.arrayBuffer()` gelesen und **nicht** verändert.
-- Die Verifikation nutzt `Stripe.createSubtleCryptoProvider()`, damit Cloudflare Workers die HMAC-Prüfung serverseitig durchführt.
+- Die Verifikation nutzt `Stripe.createSubtleCryptoProvider()`, damit Cloudflare Workers/Node die HMAC-Prüfung serverseitig durchführt.
 - Bei Erfolg antworten wir mit Status `204` und enqueuen Folgeprozesse (Durable Objects / Supabase Functions geplant).
 - Bei Fehlern liefern wir Status `400` und loggen die Fehlermeldung (Rate-Limits beachten, Logging später an Workers Analytics anbinden).
 
