@@ -17,7 +17,7 @@ export function Footer() {
         </div>
         <div className="flex flex-col gap-2 text-sm">
           <Link href="mailto:kontakt@techhilfe.pro" className="hover:text-[var(--color-accent-strong)]">
-            kontakt@techhilfe.pro
+            info@techhilfepro.de
           </Link>
           <Link href="/impressum" className="hover:text-[var(--color-accent-strong)]">
             Impressum

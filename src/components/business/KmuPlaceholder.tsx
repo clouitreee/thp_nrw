@@ -16,7 +16,7 @@ export function KmuPlaceholder() {
         <p>
           Möchten Sie frühzeitig informiert werden? Kontaktieren Sie uns unter
           <a className="ml-1 text-[var(--color-accent)] hover:text-[var(--color-accent-strong)]" href="mailto:kontakt@techhilfe.pro">
-            kontakt@techhilfe.pro
+            info@techhilfepro.de
           </a>
           und wir melden uns mit Pilotmöglichkeiten.
         </p>
